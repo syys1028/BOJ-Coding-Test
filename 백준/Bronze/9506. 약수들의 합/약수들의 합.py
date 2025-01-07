@@ -6,13 +6,13 @@ while T != -1:
 
 for i in range(len(arr)-1):
     num = []
-    for j in range(1, arr[i]//2+1):
+    for j in range(1, int(arr[i] ** 0.5) + 1):
         if arr[i] % j == 0:
             num.append(j)
+            if j != 1 and j != arr[i] // j:
+                num.append(arr[i] // j)
+    num.sort()
     if arr[i] == sum(num):
-        print("{} = ".format(arr[i]), end="")
-        for n in range(len(num)-1):
-            print("{} + ".format(num[n]), end="")
-        print("{}".format(num[len(num)-1]))
+        print(f"{arr[i]} = {' + '.join(map(str, num))}")
     else:
-        print("{} is NOT perfect.".format(arr[i]))
+        print(f"{arr[i]} is NOT perfect.")
