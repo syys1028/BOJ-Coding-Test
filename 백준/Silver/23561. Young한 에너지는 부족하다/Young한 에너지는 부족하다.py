@@ -1,11 +1,7 @@
-import sys
-input = sys.stdin.readline
 N = int(input())
-ages = list(map(int, input().split()))
+arr = list(map(int, input().split()))
 
-ages.sort()
+arr.sort()
 
-m = [ages[i + N] for i in range(N)]
-
-result = max(m) - min(m)
-print(result)
+arr = arr[N:2*N]
+print(arr[-1] - arr[0])
